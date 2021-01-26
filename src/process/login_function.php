@@ -1,43 +1,19 @@
 <?php 
 	include "../includes/init.php";
+	include "../includes/database_config.php";
 	
-	class Login {
-		private $default = [""];
-		public $session_class = "";
-		public $default_username = "username123";
-		private $default_password = "password123";
-
-		public function verify_credentials($username, $password) {
-			// Verify admin credentials
-			if ($this->default_username === $username && $this->default_password === $password) {
-				return true;
+	class Login extends Admin {
+		public function verify_admin_credentials ($id, $password) {
+			if ($this->isRegistered($id, $password)) {
+				return $id;
+			} else {
+				return false;
 			}
-			return false;
-		}
-		public function verifyAdmin($username, $password) {
-			// Initiate database.
-		}
-		
-		public function funFind($whatToFind) {
-			return array_search($whatToFind, $this->default);
 		}
 
-		public function pushToDefault($whatToPush) {
-			$toDefaultArray = $this->default;
-			array_push($toDefaultArray, $whatToPush);
+		public function callTestCall() {
+			return $this->testCall;
 		}
-	}
-	
-	// Instantiate class Login.
 
-	$expectedUsername = "09364417890";
-	$expectedPassword = "agpuon05";
-
-	if (isset($_POST['admin_number']) && isset($_POST['admin_password'])) {
-		$username = $_POST['admin_number'];
-		$password = $_POST['admin_password'];
-
-		$message = new Message;
-
-		echo $message->success_message("You entered " . $username . " Password: " . md5($password));
+		// testfunction
 	}

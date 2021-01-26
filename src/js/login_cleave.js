@@ -1,5 +1,5 @@
 import * as login_fn from "./login.js";
-
+// import * as stringFn from "./string_manipulation";
 $(document).ready(function () {
   const admin_id_textbox = $("#username-admin-field");
   const admin_login_button = $("#admin-login-button");
@@ -13,9 +13,12 @@ $(document).ready(function () {
 
   $("#login-submit-button").click(function () {
     // username field
-    const username_field = cleave_admin_id.getRawValue();
-    const password_field = admin_password_textbox.val();
+    const id = cleave_admin_id.getRawValue();
+    // password field
+    const password = admin_password_textbox.val();
 
-    login_fn.jqlogin(username_field, password_field);
+    login_fn.jqlogin(id, password);
+
+    console.log(id, password);
   });
 });

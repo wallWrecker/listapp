@@ -1,5 +1,4 @@
 <?php 
-  session_start();
   $_SESSION['session_id'] = ""; //session_id is the admin id.
   $_SESSION['permission'] = "";
 
@@ -38,6 +37,7 @@
 
     public function setSession($session_token, $type = "admin") {
       // check if a given token_name(token)n is present on database
+      
     }
   }
 

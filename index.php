@@ -64,12 +64,12 @@
             <p class="alert alert-secondary">Please fill the form. </p>
           </div>
           <div class="form-group">
-            <label id="label-admin-id" for="username-admin-field">Admin id</label>
+            <label id="label-admin-id" for="username-admin-field">Id</label>
             <input 
               id="username-admin-field" 
               class="form-control" 
               type="text"  
-              name="username" 
+              name="idw" 
               autocomplete="off"
               required
               >
@@ -80,7 +80,7 @@
             <input
               id="password-admin-field"
               class="form-control" 
-              type="password" 
+              type="password"
               name="password" 
               autocomplete="off"
               required
@@ -179,7 +179,7 @@
               name="admin-contact" 
               autocomplete="off"
               placeholder="Enter your contact number"
-              required>
+              required >
               <small class="form-text text-muted">example: 0912345678</small>
           </div>
           <!-- Register button -->

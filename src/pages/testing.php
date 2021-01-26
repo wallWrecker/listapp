@@ -70,7 +70,7 @@
       <label for="">Result</label>
       <input name="result" type="text" placeholder="Input result here">
     </div>
-    <button type="submit">Submit</button>
+    <button type="submit2">Submit</button>
   </form>
 
   <!-- Query from awesome testing table -->
@@ -87,7 +87,9 @@
     <th>test name</th>
     <th>test result</th>
     <th>date tested</th>
+    <label for=""><input type="radio" name="radio1" value="Radio 1"> Radio one</label>
   </tr>
+
   <?php 
     foreach($result as $record) {
       echo "<tr>";
@@ -98,6 +100,37 @@
       echo "</tr>";
     }
   ?>
+  
   </table>
+
+  <?php 
+
+  try {
+   
+    $stmt = $pdo_handler->prepare(
+      'SELECT admin_id 
+      FROM admin_table 
+      WHERE admin_id = ? AND admin_password = ?');
+    
+    $stmt->execute([$sample_id, $sample_password]);
+    
+    $fetch_result = $stmt->fetch();
+    var_dump($fetch_result);
+
+  } catch(PDOExeception $e) {
+    echo $e->getMessage();
+  }
+    
+    
+    if ($fetch_result) {
+      echo "<pre>";
+      print_r($fetch_result);
+      echo "</pre>";
+    } else {
+      echo "SORRY, for INCONVINIENCE";
+    }
+  ?>
+  
+  
 </section>
 

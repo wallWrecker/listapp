@@ -14,14 +14,14 @@ function uncoverPassword(checkElement, passwordElement) {
 
 function jqlogin(field1, field2) {
   $.ajax({
-    type: "post",
-    url: "src/process/login_function.php",
+    type: "POST",
+    url: "src/process/login_process.php",
     data: {
-      admin_number: field1,
-      admin_password: field2,
+      id: field1,
+      password: field2,
     },
     success: function (response) {
-      $("#alert-notification").html(response);
+      console.log(response);
     },
   });
 }
