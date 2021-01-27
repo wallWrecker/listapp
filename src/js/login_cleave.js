@@ -12,13 +12,11 @@ $(document).ready(function () {
   });
 
   $("#login-submit-button").click(function () {
-    // username field
     const id = cleave_admin_id.getRawValue();
-    // password field
     const password = admin_password_textbox.val();
 
     login_fn.jqlogin(id, password);
-
     console.log(id, password);
   });
+  // console.log();
 });
