@@ -1,5 +1,5 @@
 <?php 
-	include "../includes/init.php";
+	
 	include "../includes/database_config.php";
 	
 	class Login extends Admin {
