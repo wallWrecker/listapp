@@ -105,29 +105,21 @@
 
   <?php 
 
-  try {
-   
-    $stmt = $pdo_handler->prepare(
-      'SELECT admin_id 
-      FROM admin_table 
-      WHERE admin_id = ? AND admin_password = ?');
-    
-    $stmt->execute([$sample_id, $sample_password]);
-    
-    $fetch_result = $stmt->fetch();
-    var_dump($fetch_result);
+    try {
+      $uid = '639364417890';
+      $upswrd = 'agpuon05';
 
-  } catch(PDOExeception $e) {
-    echo $e->getMessage();
-  }
-    
-    
-    if ($fetch_result) {
-      echo "<pre>";
-      print_r($fetch_result);
-      echo "</pre>";
-    } else {
-      echo "SORRY, for INCONVINIENCE";
+      $stmt = $pdo_handler->prepare(
+        'SELECT COUNT(*)
+        FROM admin_table 
+        WHERE admin_id = ? AND admin_password = ?');
+      
+    $stmt->execute([$uid, $upswrd]);
+
+    $nRow = $stmt->fetchColumn();
+        echo $nRow;
+    } catch(PDOExeception $e) {
+      echo $e->getMessage();
     }
   ?>
   
