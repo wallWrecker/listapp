@@ -162,8 +162,8 @@
           <div class="form-group">
             <label id="labelpassword" for="admin-last-name">Last Name</label>
             <input  
+              id="admin-last-name"
               class="form-control" 
-              id="admin-last-name" 
               type="text" 
               name="admin_name" 
               autocomplete="off"
@@ -173,13 +173,13 @@
           <div class="form-group">
             <label id="labelpassword" for="admin-contact">Contact Number</label>
             <input  
-              class="form-control"
               id="admin-contact" 
+              class="form-control"
               type="text" 
               name="admin-contact" 
               autocomplete="off"
               placeholder="Enter your contact number"
-              required >
+              required>
               <small class="form-text text-muted">example: 0912345678</small>
           </div>
           <!-- Register button -->
