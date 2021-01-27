@@ -1,11 +1,15 @@
 <?php
+  include "../includes/init.php"; 
   include "login_function.php";
 
   $_login = new Login();
   
   if (isset($_POST['id']) && isset($_POST['password'])) {
-    echo "Hello there welcome!, your're logged as to " . $_POST['id'];
-  } else {
-    echo "Failed!";
+    if (!empty($_POST['id']) && !empty($_POST['password'])) {
+      $id = $_POST['id'];
+      $password = $_POST['password'];
+
+      echo $_login->verify_admin_credentials($id, $password);
+    }
   }
   ?>
