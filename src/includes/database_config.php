@@ -64,7 +64,7 @@
   
   class Admin extends DBhandler {
     public function isRegistered($id, $password) {
-      $sql_query = "SELECT admin_id FROM admin_table WHERE admin_id=? AND admin_password=?"; 
+      $sql_query = "SELECT admin_id FROM admin_table WHERE admin_id= ? AND admin_password= ?"; 
     
       try {
         $stmt = $this->getPDO_handler()->prepare($sql_query);
@@ -84,6 +84,7 @@
       
       return $stmt->fetch();
     }
+    
     public function registerAdmin(iterable $adminInputs) {
       $resgister_sql = "INSERT INTO admin_table (admin_id, admin_firstname, admin_lastname,) VALUES (admin_id = ?, admin_password = ? )";
     }
