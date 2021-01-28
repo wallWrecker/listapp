@@ -26,6 +26,7 @@
     public function getPDO_handler() {
       return $this->pdo_handler;
     }
+
   }
 
   class Transaction extends DBhandler {
@@ -40,7 +41,7 @@
       return $result;
     }
 
-    public function getSpecificTransaction($transactionId):iterable {
+    public function getSpecificTransaction(string $transactionId):iterable {
       $stmt   = $this->getPDO_handler()->prepare("SELECT * FROM transaction_table WHERE  transaction_id = ? ");
       $result = $stmt->execute([$transactionId]);
       $result = $stmt->fetchAll();
@@ -64,16 +65,17 @@
   
   class Admin extends DBhandler {
     public function isRegistered($id, $password) {
-      $sql_query = "SELECT admin_id FROM admin_table WHERE admin_id= ? AND admin_password= ?"; 
-    
       try {
+        $sql_query = "SELECT COUNT(*) FROM admin_table WHERE admin_id = ? AND admin_password = ?"; 
         $stmt = $this->getPDO_handler()->prepare($sql_query);
         $stmt->execute([$id, $password]);
-        $result = $stmt->fetch();
+        $result = $stmt->fetchColumn();
+        
+        // Returns row that satisfy the criteria.
         return $result;
       } catch(PDOExeception $e) {
         // echo "Error: $e->getMessage()";
-        return false;
+        return 0;
       }
     }
 
@@ -93,7 +95,6 @@
   }
   
   class Customer extends DBhandler {
-    
     public function getAllCustomersUnderMe() {
       $getAllCustomerSql = "SELECT * FROM customer_table";
       $stmt = $this->getPDO_handler()->prepare($getAllCustomerSql)->execute();
