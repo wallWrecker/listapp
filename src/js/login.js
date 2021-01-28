@@ -15,7 +15,7 @@ function uncoverPassword(checkElement, passwordElement) {
 
 function jqlogin(field1, field2) {
   $.ajax({
-    type: "POST",
+    type: "GET",
     url: "src/process/login_process.php",
     data: {
       id: field1,
@@ -23,23 +23,24 @@ function jqlogin(field1, field2) {
     },
 
     success: function (response) {
-      //console.log(response);
-      let msg = "";
-
+      const lastHTML = $("#alert-notification").html();
       // If the error would point to this line it would be the importing, otherwise.
-      if (helper.falsyValues(response)) {
-        location.href = "/src/pages/admin.php";
-      } else {
-        msg = "Sorry your username and password dont't match on our record.";
 
-        $("#alert-notification").html(myCustomHTML(msg, "fail"), function () {
-          console.log("Complete");
-        });
-        $("#alert-notification").fadeOut(2000, "linear", function () {
-          console.log("complete");
-        });
-        $("#alert-notification").html(myCustomHTML(msg, "success"));
+      if (response === "Success") {
+        location.href = "src/pages/admin.php";
+      } else {
+        let msg =
+          "Sorry your username and password dont't match on our record.";
+
+        $("#alert-notification").html(
+          helper.myCustomHTML(msg, "fail"),
+          function () {
+            console.log("Complete");
+          }
+        );
       }
+      console.log(response);
+      alert(response);
     },
   });
 }
