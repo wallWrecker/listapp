@@ -1,15 +1,23 @@
 <?php
+session_start();
+
   include "../includes/init.php"; 
   include "login_function.php";
 
-  $_login = new Login();
-  
-  if (isset($_POST['id']) && isset($_POST['password'])) {
-    if (!empty($_POST['id']) && !empty($_POST['password'])) {
-      $id = $_POST['id'];
-      $password = $_POST['password'];
-
-      echo $_login->verify_admin_credentials($id, $password);
+  if (isset($_GET['id']) && isset($_GET['password'])) {
+    if (empty($_GET['id']) && empty($_GET['password'])) {
+      echo "Please input data on the fields";
+    } else {
+      $id = $_GET['id'];
+      $password = $_GET['password'];
+      
+      $_login = new Login();
+      $result = $_login->verify_admin_credentials($id, $password);
+      if ($result) {
+        echo "Success";
+      } else {
+        echo "Failed";
+      }
     }
   }
   ?>

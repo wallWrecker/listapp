@@ -1,4 +1,5 @@
 import * as login_fn from "./login.js";
+import * as helper from "./helper.js";
 // import * as stringFn from "./string_manipulation";
 $(document).ready(function () {
   const admin_id_textbox = $("#username-admin-field");
@@ -12,7 +13,7 @@ $(document).ready(function () {
   });
 
   $("#login-submit-button").click(function () {
-    const id = cleave_admin_id.getRawValue();
+    const id = helper.replaceIt(cleave_admin_id.getRawValue(), "+", "");
     const password = admin_password_textbox.val();
 
     login_fn.jqlogin(id, password);
