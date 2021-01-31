@@ -11,12 +11,12 @@ $(document).ready(function () {
     phone: true,
     phoneRegionCode: "PH",
   });
-
+  
   $("#login-submit-button").click(function () {
     const id = helper.replaceIt(cleave_admin_id.getRawValue(), "+", "");
     const password = admin_password_textbox.val();
 
-    login_fn.jqlogin(id, password);
+    login_fn.ajaxLogin(id, password);
   });
   // console.log();
 });

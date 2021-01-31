@@ -3,29 +3,13 @@
   require "../includes/header.php";
   require "../process/admin_function.php";
 ?>
+<script src="../jquery/jquery_production.js"></script>
 
   <div class="container-fluid">
     <div class="row vh-100">
-    <!-- Left pane -->
-      <aside class="col col-md-3 bg-light py-3">
-        <header>
-          <h3 id="time-indicator" class="lead text-center">3:42 PM</h3>
-        </header>
-
-        <hr>
-
-        <nav class="nav d-flex flex-column nav-pill">
-          <a href="dashboard.php" class="p-2 nav-link lead active">Dashboard</a>
-          <a href="contact.php" class="p-2 nav-link lead">Contact</a>
-          <a href="Profile.php" class="p-2 nav-link lead">Profile</a>
-          <a href="logout.php" class="p-2 nav-link lead text-warning">Logout</a>
-        </nav>
-      </aside>
-     
-    <!-- Right pane -->
       <main class="col py-3">
         <header class="d-flex justify-content-between align-items-center">
-          <h3 class="h5"> 
+          <h3 class="h5">
             <span class="text-primary">Listup.io</span> - Dashboard
           </h3>
           <button class="btn btn-outline-primary">Add Contact</button>
@@ -35,18 +19,18 @@
 
         <section>
           <!-- Summary Count -->
-          <div class="row align-items-center justify-content-center">
+          <div class="row align-items-center justify-content-center counter-div">
             <div class="col-sm-3 border border-warning rounded py-3 mx-3 my-3">
               <p id="dashboard-count" class="h3 text-center text-dark">21</p>
               <p class="lead text-center">Current Unpaid</p>
             </div>
 
-            <div class="col-sm-3 border border-success rounded py-3 mx-3 my-3">
+            <div class="col-sm-3 border border-success rounded py-3 mx-3 my-3 counter-div">
               <p id="dashboard-count" class="h3 text-center text-black">21</p>
               <p class="lead text-center">Current Paid</p>
             </div>
             
-            <div class="col-sm-3 border border-info rounded py-3 mx-3 my-3">
+            <div class="col-sm-3 border border-info rounded py-3 mx-3 my-3 counter-div">
               <p id="dashboard-count" class="h3 text-center text-dark">21</p>
               <p class="lead text-center">Transactions Made</p>
             </div>

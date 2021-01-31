@@ -104,23 +104,22 @@
   </table>
 
   <?php 
+      try {
+        $uid = '639364417890';
+        $upswrd = 'agpuon05';
 
-    try {
-      $uid = '639364417890';
-      $upswrd = 'agpuon05';
+        $stmt = $pdo_handler->prepare(
+          'SELECT COUNT(*)
+          FROM admin_table 
+          WHERE admin_id = ? AND admin_password = ?');
+        
+      $stmt->execute([$uid, $upswrd]);
 
-      $stmt = $pdo_handler->prepare(
-        'SELECT COUNT(*)
-        FROM admin_table 
-        WHERE admin_id = ? AND admin_password = ?');
-      
-    $stmt->execute([$uid, $upswrd]);
-
-    $nRow = $stmt->fetchColumn();
-        echo $nRow;
-    } catch(PDOExeception $e) {
-      echo $e->getMessage();
-    }
+      $nRow = $stmt->fetchColumn();
+          echo $nRow;
+      } catch(PDOExeception $e) {
+        echo $e->getMessage();
+      }
   ?>
   
   

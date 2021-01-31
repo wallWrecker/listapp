@@ -11,7 +11,7 @@
       PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
       PDO::ATTR_EMULATE_PREPARES => false
     ];
-
+    
     private $pdo_handler = "";
 
     public function __construct() {
@@ -87,11 +87,15 @@
       return $stmt->fetch();
     }
     
-    public function registerAdmin(iterable $adminInputs) {
-      $resgister_sql = "INSERT INTO admin_table (admin_id, admin_firstname, admin_lastname,) VALUES (admin_id = ?, admin_password = ? )";
+    public function registerAdmin(iterable $adminInputs): void {
+      $insert_sql = 
+        "INSERT INTO admin_table (admin_id, admin_firstname, admin_lastname,) 
+         VALUES (admin_id = ?, admin_password = ?, admin_first_name = ? ,admin_last_name = ?, admin_contact_number = ?, admin_address = ?)";
+      $stmt = $this->getPDO_handler()->prepare($insert_sql);
+      $stmt->execute([$adminInputs]);
+      
     }
 
-    public $testCall = "Admin called!";
   }
   
   class Customer extends DBhandler {

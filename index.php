@@ -29,6 +29,9 @@
       <!-- Section Introduction -->
       <section class="py-3">
         <h3 class="display-4">Listup.io</h3>
+        <div id="messagehere">
+          <!-- Login success/fail message. -->
+        </div>
         <p class="lead">
           A side project for saving up phone numbers and 
           other information related to digital 
@@ -161,7 +164,7 @@
           </div>
           <div class="form-group">
             <label id="labelpassword" for="admin-last-name">Last Name</label>
-            <input  
+            <input
               id="admin-last-name"
               class="form-control" 
               type="text" 

@@ -13,36 +13,31 @@ function uncoverPassword(checkElement, passwordElement) {
   }
 }
 
-function jqlogin(field1, field2) {
+function ajaxLogin(field1, field2) {  
   $.ajax({
-    type: "GET",
+    type: "POST",
     url: "src/process/login_process.php",
     data: {
-      id: field1,
+      field1: field1,
       password: field2,
     },
 
     success: function (response) {
-      const lastHTML = $("#alert-notification").html();
-      // If the error would point to this line it would be the importing, otherwise.
-
       if (response === "Success") {
-        location.href = "src/pages/admin.php";
+        window.location.href = "src/pages/admin.php";
       } else {
         let msg =
           "Sorry your username and password dont't match on our record.";
 
-        $("#alert-notification").html(
-          helper.myCustomHTML(msg, "fail"),
-          function () {
-            console.log("Complete");
-          }
-        );
+        $("#alert-notification").html(helper.myCustomHTML(msg, "fail"));
       }
-      console.log(response);
-      alert(response);
     },
   });
 }
 
-export { uncoverPassword, jqlogin };
+function clearInput(inputElement) {
+  return inputElement.val("");
+}
+
+
+export { uncoverPassword, ajaxLogin };
