@@ -16,9 +16,9 @@
 
         <nav class="nav d-flex flex-column nav-pill">
           <a href="dashboard.php" class="p-2 nav-link lead active">Dashboard</a>
-          <a href="contact.php" class="p-2 nav-link lead">Contact</a>
-          <a href="Profile.php" class="p-2 nav-link lead">Profile</a>
-          <a href="logout.php" class="p-2 nav-link lead text-warning">Logout</a>
+          <a href="contact.php"   class="p-2 nav-link lead">Contact</a>
+          <a href="Profile.php"   class="p-2 nav-link lead">Profile</a>
+          <a href="logout.php"    class="p-2 nav-link lead text-warning">Logout</a>
         </nav>
       </aside>
      
@@ -28,7 +28,7 @@
           <h3 class="h5"> 
             <span class="text-primary">Listup.io</span> - Dashboard
           </h3>
-          <button class="btn btn-outline-primary">Add Contact</button>
+          <button class="btn btn-text">Add Contact</button>
         </header>
 
         <hr>
@@ -45,7 +45,7 @@
               <p id="dashboard-count" class="h3 text-center text-black">21</p>
               <p class="lead text-center">Current Paid</p>
             </div>
-            
+
             <div class="col-sm-3 border border-info rounded py-3 mx-3 my-3">
               <p id="dashboard-count" class="h3 text-center text-dark">21</p>
               <p class="lead text-center">Transactions Made</p>
