@@ -6,7 +6,7 @@ $(document).ready(function () {
   const admin_login_button = $("#admin-login-button");
   const admin_password_textbox = $("#password-admin-field");
 
-  var cleave_admin_id = new Cleave(admin_id_textbox, {
+  let cleave_admin_id = new Cleave(admin_id_textbox, {
     prefix: "+63",
     phone: true,
     phoneRegionCode: "PH",
@@ -16,9 +16,14 @@ $(document).ready(function () {
     const id = helper.replaceIt(cleave_admin_id.getRawValue(), "+", "");
     const password = admin_password_textbox.val();
 
+<<<<<<< HEAD
     login_fn.jqlogin(id, password);
     // clear out input;
     cleave_admin_id;
+=======
+    login_fn.ajaxLogin(id, password);
+    cleave_admin_id.setRawValue("");
+>>>>>>> 8adb40b5c19a31ce0f813da9dcc6eb2a83e8251f
   });
   // console.log();
 });

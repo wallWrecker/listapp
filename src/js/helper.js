@@ -31,5 +31,12 @@ export function veryfyIfFalsy(data) {
 }
 
 export function replaceIt(str, r, w) {
+<<<<<<< HEAD
   if (typeof str !== "string") return str.replace(r, w);
+=======
+  if (typeof str === "string") {
+    return str.replace(r, w);
+  }
+  return undefined;
+>>>>>>> 8adb40b5c19a31ce0f813da9dcc6eb2a83e8251f
 }
