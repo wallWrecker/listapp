@@ -18,7 +18,7 @@ function ajaxLogin(field1, field2) {
     type: "POST",
     url: "src/process/login_process.php",
     data: {
-      field1: field1,
+      id: field1,
       password: field2,
     },
 
@@ -26,8 +26,7 @@ function ajaxLogin(field1, field2) {
       if (response === "Success") {
         window.location.href = "src/pages/admin.php";
       } else {
-        let msg =
-          "Sorry your username and password dont't match on our record.";
+        let msg = "Sorry your username and password dont't match on our record.";
 
         $("#alert-notification").html(helper.myCustomHTML(msg, "fail"));
       }
