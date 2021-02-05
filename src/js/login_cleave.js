@@ -17,6 +17,8 @@ $(document).ready(function () {
     const password = admin_password_textbox.val();
 
     login_fn.jqlogin(id, password);
+    // clear out input;
+    cleave_admin_id;
   });
   // console.log();
 });

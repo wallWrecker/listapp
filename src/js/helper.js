@@ -25,16 +25,11 @@ export function veryfyIfFalsy(data) {
     false,
     "Failed",
   ];
-  falsyValues.forEach((ele) => {
-    if (data == ele) {
-      return false;
-    }
-  });
-  return data;
+
+  const result = falsyValues.falsyValues.every((ele) => ele != findThis);
+  return result;
 }
+
 export function replaceIt(str, r, w) {
-  if (typeof str != "string" || typeof r != "string" || typeof w != "string") {
-    return "";
-  }
-  return str.replace(r, w);
+  if (typeof str !== "string") return str.replace(r, w);
 }
